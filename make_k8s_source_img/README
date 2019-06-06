@@ -1,0 +1,3 @@
+docker run --rm -v yourcodedir:/go/src/k8s.io/kubernetes -it fanux/kubernetes-build:v1.0.0 bash
+# cd /go/src/k8s.io/kubernetes
+# make all WHAT=cmd/kubeadm GOFLAGS=-v
