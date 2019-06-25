@@ -3,3 +3,4 @@ make_k8s_source_img/data/kubernetes_bak
 make_k8s_source_img_old/data/kubernetes-1.14.1
 service_coredns/data
 make_k8s_source_img_old/data/kubernetes_bak
+service_shop_client/data
