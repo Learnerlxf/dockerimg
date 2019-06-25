@@ -1,0 +1,3 @@
+docker run --rm --name make_k8s_source_img -v yourcodedir:/go/src/k8s.io/kubernetes -it liuxiaofei/make_k8s_source_img:v0.0.1 bash
+# cd /go/src/k8s.io/kubernetes
+# make all WHAT=cmd/kubeadm GOFLAGS=-v

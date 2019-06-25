@@ -29,8 +29,5 @@ WORKDIR /go/src/k8s.io/kubernetes
 ENV GOROOT=/usr/local/go \
     PATH="$PATH:/usr/local/go/bin" \
     GOPATH=/go
-#将服务器的go工程代码加入到docker容器中
-ADD data/kubernetes /data
-
 #最终运行docker的命令
 CMD ["/bin/sh", "-c", "while true; do echo hello world; sleep 1; done"]
