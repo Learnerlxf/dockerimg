@@ -22,22 +22,21 @@ RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.old \
     && wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo \
     && yum -y install rsync nc htop && rm -rf /var/cache/yum
 RUN yum install -y git && rm -rf /var/cache/yum
-
-RUN mkdir -p /data/HelloWorld/src/main
+RUN echo "10.19.150.79 1v1-classroom.xueba10.com" >> /etc/hosts
+RUN mkdir -p /data/HelloWorld/src
 #设置工作目录
-WORKDIR /data/HelloWorld/src/main
+WORKDIR /data/HelloWorld/src
 
 #暴露端口
-EXPOSE 8000
-EXPOSE 8082
+EXPOSE 8080
+EXPOSE 8081
 
 ENV GOROOT=/usr/local/go \
     PATH="$PATH:/usr/local/go/bin" \
     GOPATH=/data/HelloWorld
 #将服务器的go工程代码加入到docker容器中
 ADD data /data
-RUN go build /data/HelloWorld/src/main/main.go
+RUN go build -o nohost-client /data/HelloWorld/src/main.go
 #最终运行docker的命令
-#CMD ["/bin/sh", "-c", "while true; do echo hello world; sleep 1; done"]
-#CMD ["/bin/sh", "-c", "/data/HelloWorld/src/main/main > /data/HelloWorld/src/main/main.log 2>&1"]
-CMD ["/bin/sh", "-c", "sh /data/HelloWorld/src/main/start.sh"]
+
+CMD ["/bin/sh", "-c", "sh /data/HelloWorld/src/start.sh"]

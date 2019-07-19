@@ -4,3 +4,6 @@ make_k8s_source_img_old/data/kubernetes-1.14.1
 service_coredns/data
 make_k8s_source_img_old/data/kubernetes_bak
 service_shop_client/data
+service_course/data
+service_classroom/data
+service_client/data
