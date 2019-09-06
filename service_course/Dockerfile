@@ -36,7 +36,8 @@ ENV GOROOT=/usr/local/go \
     GOPATH=/data/HelloWorld
 #将服务器的go工程代码加入到docker容器中
 ADD data /data
-RUN go build -o service-course /data/HelloWorld/src/main.go
+#RUN go build -o service-course /data/HelloWorld/src/main.go
 #最终运行docker的命令
 
-CMD ["/bin/sh", "-c", "sh /data/HelloWorld/src/start.sh"]
+#CMD ["/bin/sh", "-c", "sh /data/HelloWorld/src/start.sh"]
+CMD ["/bin/sh", "-c", "/data/service-course >> /data/service-course.log 2>&1"]
